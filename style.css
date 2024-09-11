@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* CSS Document */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+.img {    
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+    background-position-x:center;
+    background-position-y: center;
+    background-image: url(./nate.jpg);
+    background-repeat: no-repeat;
+	position: fixed;
+  }
+
+.main_container{
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	
+}
+
+.name {
+	position:fixed;
+    top:0%;
+    left: 0%;
+	width:100%;
+	/*min-width:320px;
+	max-width:550px;
+	margin: 10px 10px 10px 90px;*/
+    white-space: nowrap;
+	color:#000;
+	font-family:'Droid Sans', sans-serif;
+	font-size:0.9rem;
+	background-color:rgba(255,255,255,0.95);
+	padding: 0px 20px 0px 20px;	
+}
+/* start new -------------------------------------*/
+/*hide dropdown icon normally*/
+.name .icon {
+	display: none;
+}
+
+/* right align links */
+.name span {
+	float: right;
+}
+
+.name ul {
+	list-style-type: none;
+	top: 0%;
+	float: right;
+}
+.name li{
+	display: inline;
+}
+
+
+/* When the screen is less than 600 pixels wide, hide all links. Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 800px) {
+	.name span, .dropdown .dropbtn {
+	  display: none;
+	}
+	.name ul:not(:first-child) {
+		display:none;
+	}
+	.name a.icon {
+	  float: right;
+	  display: block;
+	  top: 30px;
+	}
+  }
+
+  @media screen and (max-width: 800px) {
+	/*.name.responsive {position: relative;}*/
+	.name.responsive .icon {
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	}
+	.name.responsive span {
+	  float: right;
+	  display: block;
+	  text-align: right;
+	}
+	.name.responsive ul{
+		list-style-type: none;
+		float:right;
+		margin-top: 50px;
+		display: block;
+	}
+	.name.responsive li {
+		display:block;
+	}
+	
+  }
+
+/* end new ----------------------------------------*/
+.text {
+	position:absolute;
+    top: 30%;
+    left: 0%;
+	width:45%;
+	min-width:320px;
+	max-width:550px;
+	margin: 10px 10px 10px 90px;
+	color:#000;
+	font-family:'Droid Sans', sans-serif;
+	font-size:0.9rem;
+	background-color:rgba(255,255,255,0.90);
+	padding: 0px 20px 0px 20px;	
+}
+
+
