@@ -32,6 +32,10 @@ a {
 	
 }
 
+.publication_list li + li {
+  margin-top: 5px;
+}
+
 .name {
 	position:fixed;
     top:0%;
