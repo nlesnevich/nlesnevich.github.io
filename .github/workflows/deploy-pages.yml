@@ -1,0 +1,44 @@
+# Deploys this static site to GitHub Pages using actions that run on Node.js 24.
+# Replaces GitHub's legacy "pages-build-deployment" (Jekyll) pipeline, whose
+# bundled actions target Node.js 20, which GitHub removed from its runners in Sept 2026.
+#
+# One-time setup: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one deployment at a time; don't cancel a deployment in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6            # node24
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6     # node24
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v5   # uses upload-artifact v7 (node24)
+        with:
+          path: .                            # plain HTML site; no build step needed
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5        # node24
